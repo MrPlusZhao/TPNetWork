@@ -15,6 +15,7 @@
 		4D16059F25AC2F1E00201685 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D16059E25AC2F1E00201685 /* main.m */; };
 		4D1605AF25AC2FD200201685 /* TPNetWork.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D1605AE25AC2FD200201685 /* TPNetWork.m */; };
 		4D4BD98F25B55ADD0096D213 /* TPCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D4BD98E25B55ADD0096D213 /* TPCommon.m */; };
+		4D6C523E25BECC700018D3E4 /* MBProgressHUD+TP.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D6C523C25BECC700018D3E4 /* MBProgressHUD+TP.m */; };
 		8314CE1D3CB973728B5B4025 /* Pods_TPNetWork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B844C10ED3D801A0345C2997 /* Pods_TPNetWork.framework */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +34,8 @@
 		4D1605AE25AC2FD200201685 /* TPNetWork.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPNetWork.m; sourceTree = "<group>"; };
 		4D4BD98D25B55ADD0096D213 /* TPCommon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPCommon.h; sourceTree = "<group>"; };
 		4D4BD98E25B55ADD0096D213 /* TPCommon.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPCommon.m; sourceTree = "<group>"; };
+		4D6C523C25BECC700018D3E4 /* MBProgressHUD+TP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+TP.m"; sourceTree = "<group>"; };
+		4D6C523D25BECC700018D3E4 /* MBProgressHUD+TP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+TP.h"; sourceTree = "<group>"; };
 		9840FB9AB560B726F8DEF0C4 /* Pods-TPNetWork.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TPNetWork.release.xcconfig"; path = "Target Support Files/Pods-TPNetWork/Pods-TPNetWork.release.xcconfig"; sourceTree = "<group>"; };
 		B844C10ED3D801A0345C2997 /* Pods_TPNetWork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TPNetWork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFB56916C11523BBB1215E5B /* Pods-TPNetWork.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TPNetWork.debug.xcconfig"; path = "Target Support Files/Pods-TPNetWork/Pods-TPNetWork.debug.xcconfig"; sourceTree = "<group>"; };
@@ -98,6 +101,8 @@
 		4D4BD98C25B55ACB0096D213 /* TPCommon */ = {
 			isa = PBXGroup;
 			children = (
+				4D6C523D25BECC700018D3E4 /* MBProgressHUD+TP.h */,
+				4D6C523C25BECC700018D3E4 /* MBProgressHUD+TP.m */,
 				4D4BD98D25B55ADD0096D213 /* TPCommon.h */,
 				4D4BD98E25B55ADD0096D213 /* TPCommon.m */,
 			);
@@ -235,6 +240,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D1605AF25AC2FD200201685 /* TPNetWork.m in Sources */,
+				4D6C523E25BECC700018D3E4 /* MBProgressHUD+TP.m in Sources */,
 				4D16059425AC2F1C00201685 /* ViewController.m in Sources */,
 				4D16058E25AC2F1C00201685 /* AppDelegate.m in Sources */,
 				4D4BD98F25B55ADD0096D213 /* TPCommon.m in Sources */,

@@ -7,6 +7,7 @@
 
 #import "ViewController.h"
 #import "TPNetWork.h"
+#import "MBProgressHUD+TP.h"
 
 @interface ViewController ()
 
@@ -21,14 +22,16 @@
 }
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
     
-//    NSString *url = @"http://192.168.2.126:8888/dptweb/dptInterface/order/goodCount.action";
-//    [TPNetWork RequestType:TPTYPE_POST url:url parameter:nil headers:nil needLoading:YES success:^(id  _Nonnull resultObject) {
-//        NSLog(@"%@",resultObject);
-//        } failure:^(id  _Nonnull resultObject) {
-//            
-//        } error:^(NSError * _Nonnull error) {
-//            
-//        }];
+    [MBProgressHUD TPShowLoading:@"加载中"];
+    NSString *url = @"http://192.168.2.126:8888/dptweb/dptInterface/order/goodCount.action";
+    [TPNetWork RequestType:TPTYPE_POST url:url parameter:nil headers:nil needLoading:YES success:^(id  _Nonnull resultObject) {
+        NSLog(@"%@",resultObject);
+        [MBProgressHUD hideHUD];
+        } failure:^(id  _Nonnull resultObject) {
+            [MBProgressHUD hideHUD];
+        } error:^(NSError * _Nonnull error) {
+            [MBProgressHUD hideHUD];
+        }];
 }
 
 @end
