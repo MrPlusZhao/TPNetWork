@@ -12,23 +12,24 @@
 @implementation MBProgressHUD (TP)
 
 + (void)TPShowNomal:(nullable NSString *)text afterDelay:(NSTimeInterval)delay{
-    [MBProgressHUD TPShowNomal:text view:nil afterDelay:1.0];
+    [MBProgressHUD TPShowNomal:text view:nil afterDelay:delay];
 }
 + (void)TPShowNomal:(nullable NSString *)text view:(nullable UIView *)view afterDelay:(NSTimeInterval)delay
 {
     if (view == nil) view = [[UIApplication sharedApplication].windows lastObject];
     // 快速显示一个提示信息
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
-//    hud.bezelView.style = MBProgressHUDBackgroundStyleSolidColor;
-    hud.bezelView.color = UIColor.blackColor;    //背景颜色
+    hud.bezelView.style = MBProgressHUDBackgroundStyleSolidColor;
+    hud.bezelView.backgroundColor = UIColor.blackColor;    //背景颜色
     hud.label.text = text;
+    hud.mode = MBProgressHUDModeText;
+    hud.label.textColor = UIColor.whiteColor;
     if (text.length > 16) {
         hud.label.text = @"温馨提示";
         hud.detailsLabel.text = text;
         hud.detailsLabel.font = [UIFont systemFontOfSize:16];
     }
     // 再设置模式
-    hud.mode = MBProgressHUDModeCustomView;
     // 隐藏时候从父控件中移除
     hud.removeFromSuperViewOnHide = YES;
     // 1秒之后再消失
@@ -41,15 +42,14 @@
     if (view == nil) view = [[UIApplication sharedApplication].windows lastObject];
     // 快速显示一个提示信息
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
-//    hud.mode = MBProgressHUDModeCustomView;
-//    hud.bezelView.color = UIColor.blackColor;    //背景颜色
+    hud.bezelView.style = MBProgressHUDBackgroundStyleSolidColor;
+    hud.bezelView.backgroundColor = UIColor.blackColor;    //背景颜色
     hud.label.textColor = UIColor.whiteColor;
     hud.detailsLabel.textColor = UIColor.whiteColor;
     hud.label.text = message;
+    hud.contentColor = UIColor.whiteColor;
     // 隐藏时候从父控件中移除
     hud.removeFromSuperViewOnHide = YES;
-    // YES代表需要蒙版效果
-//    hud.dimBackground = YES;
     return hud;
 }
 
