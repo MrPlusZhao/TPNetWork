@@ -32,7 +32,6 @@ static dispatch_once_t managerOnceToken;
                                @"application/x-javascript",
                                @"text/plain",@"application/xml"
                                ,@"application/x-www-form-urlencoded"];
-        shareManager.requestSerializer = [AFJSONRequestSerializer serializer];
         shareManager.responseSerializer = [AFJSONResponseSerializer serializer];
         shareManager.responseSerializer.acceptableContentTypes = [NSSet setWithArray:acceptArr];
         shareManager.requestSerializer.timeoutInterval = TPTimeoutInterval;

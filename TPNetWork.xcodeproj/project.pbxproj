@@ -14,7 +14,7 @@
 		4D16059C25AC2F1E00201685 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D16059A25AC2F1E00201685 /* LaunchScreen.storyboard */; };
 		4D16059F25AC2F1E00201685 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D16059E25AC2F1E00201685 /* main.m */; };
 		4D1605AF25AC2FD200201685 /* TPNetWork.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D1605AE25AC2FD200201685 /* TPNetWork.m */; };
-		4D6C523E25BECC700018D3E4 /* MBProgressHUD+TP.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D6C523C25BECC700018D3E4 /* MBProgressHUD+TP.m */; };
+		4DF94C512623F0CC00EFD2D1 /* TPCommon.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DF94C502623F0CC00EFD2D1 /* TPCommon.m */; };
 		8314CE1D3CB973728B5B4025 /* Pods_TPNetWork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B844C10ED3D801A0345C2997 /* Pods_TPNetWork.framework */; };
 /* End PBXBuildFile section */
 
@@ -31,8 +31,8 @@
 		4D16059E25AC2F1E00201685 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4D1605AD25AC2FD200201685 /* TPNetWork.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPNetWork.h; sourceTree = "<group>"; };
 		4D1605AE25AC2FD200201685 /* TPNetWork.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPNetWork.m; sourceTree = "<group>"; };
-		4D6C523C25BECC700018D3E4 /* MBProgressHUD+TP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+TP.m"; sourceTree = "<group>"; };
-		4D6C523D25BECC700018D3E4 /* MBProgressHUD+TP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+TP.h"; sourceTree = "<group>"; };
+		4DF94C4F2623F0CC00EFD2D1 /* TPCommon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPCommon.h; sourceTree = "<group>"; };
+		4DF94C502623F0CC00EFD2D1 /* TPCommon.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TPCommon.m; sourceTree = "<group>"; };
 		9840FB9AB560B726F8DEF0C4 /* Pods-TPNetWork.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TPNetWork.release.xcconfig"; path = "Target Support Files/Pods-TPNetWork/Pods-TPNetWork.release.xcconfig"; sourceTree = "<group>"; };
 		B844C10ED3D801A0345C2997 /* Pods_TPNetWork.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TPNetWork.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFB56916C11523BBB1215E5B /* Pods-TPNetWork.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TPNetWork.debug.xcconfig"; path = "Target Support Files/Pods-TPNetWork/Pods-TPNetWork.debug.xcconfig"; sourceTree = "<group>"; };
@@ -98,8 +98,8 @@
 		4D4BD98C25B55ACB0096D213 /* TPCommon */ = {
 			isa = PBXGroup;
 			children = (
-				4D6C523D25BECC700018D3E4 /* MBProgressHUD+TP.h */,
-				4D6C523C25BECC700018D3E4 /* MBProgressHUD+TP.m */,
+				4DF94C4F2623F0CC00EFD2D1 /* TPCommon.h */,
+				4DF94C502623F0CC00EFD2D1 /* TPCommon.m */,
 			);
 			path = TPCommon;
 			sourceTree = "<group>";
@@ -235,9 +235,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D1605AF25AC2FD200201685 /* TPNetWork.m in Sources */,
-				4D6C523E25BECC700018D3E4 /* MBProgressHUD+TP.m in Sources */,
 				4D16059425AC2F1C00201685 /* ViewController.m in Sources */,
 				4D16058E25AC2F1C00201685 /* AppDelegate.m in Sources */,
+				4DF94C512623F0CC00EFD2D1 /* TPCommon.m in Sources */,
 				4D16059F25AC2F1E00201685 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

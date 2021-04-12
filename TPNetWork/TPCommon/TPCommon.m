@@ -1,20 +1,18 @@
 //
-//  MBProgressHUD+TP.m
-//  BasicNetWorking
+//  TPCommon.m
+//  TPNetWork
 //
-//  Created by MrPlusZhao on 2021/1/22.
-//  Copyright © 2021 iOSCoderZhao. All rights reserved.
+//  Created by MrPlusZhao on 2021/4/12.
 //
 
-#import "MBProgressHUD+TP.h"
-#import <MBProgressHUD/MBProgressHUD.h>
+#import "TPCommon.h"
 
-@implementation MBProgressHUD (TP)
+@implementation TPCommon
 
-+ (void)TPShowNomal:(nullable NSString *)text afterDelay:(NSTimeInterval)delay{
-    [MBProgressHUD TPShowNomal:text view:nil afterDelay:delay];
++ (void)ShowNomal:(nullable NSString *)text afterDelay:(NSTimeInterval)delay{
+    [TPCommon ShowNomal:text view:nil afterDelay:delay];
 }
-+ (void)TPShowNomal:(nullable NSString *)text view:(nullable UIView *)view afterDelay:(NSTimeInterval)delay
++ (void)ShowNomal:(nullable NSString *)text view:(nullable UIView *)view afterDelay:(NSTimeInterval)delay
 {
     if (view == nil) view = [[UIApplication sharedApplication].windows lastObject];
     // 快速显示一个提示信息
@@ -38,10 +36,10 @@
     }
     [hud hideAnimated:YES afterDelay:delay];
 }
-+ (MBProgressHUD *)TPShowLoading:(nullable NSString *)message toView:(nullable UIView *)view {
++ (TPCommon *)ShowLoading:(nullable NSString *)message toView:(nullable UIView *)view {
     if (view == nil) view = [[UIApplication sharedApplication].windows lastObject];
     // 快速显示一个提示信息
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
+    TPCommon *hud = [TPCommon showHUDAddedTo:view animated:YES];
     hud.bezelView.style = MBProgressHUDBackgroundStyleSolidColor;
     hud.bezelView.backgroundColor = UIColor.blackColor;    //背景颜色
     hud.label.textColor = UIColor.whiteColor;
@@ -53,9 +51,9 @@
     return hud;
 }
 
-+ (MBProgressHUD *)TPShowLoading:(nullable NSString *)message
++ (TPCommon *)ShowLoading:(nullable NSString *)message
 {
-    return [self TPShowLoading:message toView:nil];
+    return [self ShowLoading:message toView:nil];
 }
 
 + (void)hideHUDForView:(nullable UIView *)view
