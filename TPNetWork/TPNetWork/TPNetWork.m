@@ -6,6 +6,7 @@
 //
 
 #import "TPNetWork.h"
+#import "TPCommon.h"
 
 NSInteger const TPTimeoutInterval = 10;
 NSInteger const TPSucceedCode = 200;
@@ -38,13 +39,13 @@ static dispatch_once_t managerOnceToken;
     });
     return shareManager;
 }
-+ (void)POST:(NSString *)URLString
++ (void)post:(NSString *)URLString
    parameter:(nullable NSDictionary *)parameter
      success:(void (^)(id resultObject))successCallback
      failure:(void (^)(id resultObject))failureCallback
        error:(nullable void (^)(NSError *error))errorCallBack{
     
-    [TPNetWork RequestType:TPTYPE_POST url:URLString parameter:parameter headers:nil needLoading:YES success:^(id  _Nonnull resultObject) {
+    [TPNetWork request:TPTYPE_POST url:URLString parameter:parameter headers:nil needLoading:YES success:^(id  _Nonnull resultObject) {
         if (successCallback) {
             successCallback(resultObject);
         }
@@ -59,13 +60,13 @@ static dispatch_once_t managerOnceToken;
     }];
 }
 
-+ (void)GET:(NSString *)URLString
++ (void)get:(NSString *)URLString
   parameter:(nullable NSDictionary *)parameter
     success:(void (^)(id resultObject))successCallback
     failure:(void (^)(id resultObject))failureCallback
       error:(nullable void (^)(NSError *error))errorCallBack{
     
-    [TPNetWork RequestType:TPTYPE_GET url:URLString parameter:parameter headers:nil needLoading:YES success:^(id  _Nonnull resultObject) {
+    [TPNetWork request:TPTYPE_GET url:URLString parameter:parameter headers:nil needLoading:YES success:^(id  _Nonnull resultObject) {
         if (successCallback) {
             successCallback(resultObject);
         }
@@ -80,13 +81,13 @@ static dispatch_once_t managerOnceToken;
     }];
 }
 
-+ (void)PUT:(NSString *)URLString
++ (void)put:(NSString *)URLString
   parameter:(nullable NSDictionary *)parameter
     success:(void (^)(id resultObject))successCallback
     failure:(void (^)(id resultObject))failureCallback
       error:(nullable void (^)(NSError *error))errorCallBack{
     
-    [TPNetWork RequestType:TPTYPE_PUT url:URLString parameter:parameter headers:nil needLoading:YES success:^(id  _Nonnull resultObject) {
+    [TPNetWork request:TPTYPE_PUT url:URLString parameter:parameter headers:nil needLoading:YES success:^(id  _Nonnull resultObject) {
         if (successCallback) {
             successCallback(resultObject);
         }
@@ -101,7 +102,7 @@ static dispatch_once_t managerOnceToken;
     }];
 }
 
-+ (void)RequestType:(TPRequestType)type
++ (void)request:(TPRequestType)type
                   url:(NSString *)URLString
             parameter:(nullable NSDictionary *)parameter
               headers:(nullable NSDictionary <NSString *, NSString *> *)headers
@@ -113,7 +114,7 @@ static dispatch_once_t managerOnceToken;
         case TPTYPE_POST:
         {
             [[self shareManager] POST:URLString parameters:parameter headers:headers progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-                [TPNetWork AfterRequest:URLString parameter:parameter response:responseObject error:nil];
+                [TPNetWork afterRequest:URLString parameter:parameter response:responseObject error:nil];
                 if ([responseObject[@"code"] integerValue] == TPSucceedCode) {
                     if (successCallback) {
                         successCallback(responseObject);
@@ -125,7 +126,7 @@ static dispatch_once_t managerOnceToken;
                     }
                 }
             } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                [TPNetWork AfterRequest:URLString parameter:parameter response:nil error:error];
+                [TPNetWork afterRequest:URLString parameter:parameter response:nil error:error];
                 if (errorCallBack) {
                     errorCallBack(error);
                 }
@@ -135,7 +136,7 @@ static dispatch_once_t managerOnceToken;
         case TPTYPE_GET:
         {
             [[self shareManager] GET:URLString parameters:parameter headers:headers progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-                [TPNetWork AfterRequest:URLString parameter:parameter response:responseObject error:nil];
+                [TPNetWork afterRequest:URLString parameter:parameter response:responseObject error:nil];
                 if ([responseObject[@"code"] integerValue] == TPSucceedCode) {
                     if (successCallback) {
                         successCallback(responseObject);
@@ -147,7 +148,7 @@ static dispatch_once_t managerOnceToken;
                     }
                 }
             } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                [TPNetWork AfterRequest:URLString parameter:parameter response:nil error:error];
+                [TPNetWork afterRequest:URLString parameter:parameter response:nil error:error];
                 if (errorCallBack) {
                     errorCallBack(error);
                 }
@@ -156,8 +157,8 @@ static dispatch_once_t managerOnceToken;
             break;
         case TPTYPE_PUT:
         {
-            [[self shareManager] PUT:URLString parameters:parameter headers:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-                [TPNetWork AfterRequest:URLString parameter:parameter response:responseObject error:nil];
+            [[self shareManager] PUT:URLString parameters:parameter headers:headers success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                [TPNetWork afterRequest:URLString parameter:parameter response:responseObject error:nil];
                 if ([responseObject[@"code"] integerValue] == TPSucceedCode) {
                     if (successCallback) {
                         successCallback(responseObject);
@@ -169,7 +170,7 @@ static dispatch_once_t managerOnceToken;
                     }
                 }
             } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                [TPNetWork AfterRequest:URLString parameter:parameter response:nil error:error];
+                [TPNetWork afterRequest:URLString parameter:parameter response:nil error:error];
                 if (errorCallBack) {
                     errorCallBack(error);
                 }
@@ -179,7 +180,7 @@ static dispatch_once_t managerOnceToken;
         default:
             [[self shareManager] POST:URLString parameters:parameter headers:headers progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                 
-                [TPNetWork AfterRequest:URLString parameter:parameter response:responseObject error:nil];
+                [TPNetWork afterRequest:URLString parameter:parameter response:responseObject error:nil];
                 
                 if ([responseObject[@"code"] integerValue] == TPSucceedCode) {
                     if (successCallback) {
@@ -192,14 +193,15 @@ static dispatch_once_t managerOnceToken;
                     }
                 }
             } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                [TPNetWork AfterRequest:URLString parameter:parameter response:nil error:error];
+                [TPNetWork afterRequest:URLString parameter:parameter response:nil error:error];
             }];
             break;
     }
     
 }
 
-+ (void)AfterRequest:(NSString *)URLString parameter:(NSDictionary *)parameter response:(NSDictionary*)resp error:(NSError *)error{
++ (void)afterRequest:(NSString *)URLString parameter:(NSDictionary *)parameter response:(NSDictionary*)resp error:(NSError *)error{
+    [TPCommon hideHUD];
     NSMutableDictionary *mutDict = [NSMutableDictionary dictionary];
     [mutDict setValue:URLString forKey:@"requestUrl"];
     [mutDict setValue:parameter?parameter:@"" forKey:@"requestPrameter"];

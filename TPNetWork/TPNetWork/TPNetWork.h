@@ -20,25 +20,25 @@ typedef enum : NSUInteger {
 
 + (AFHTTPSessionManager *)shareManager;
 
-+ (void)POST:(NSString *)URLString
++ (void)post:(NSString *)URLString
    parameter:(nullable NSDictionary *)parameter
      success:(void (^)(id resultObject))successCallback
      failure:(void (^)(id resultObject))failureCallback
        error:(nullable void (^)(NSError *error))errorCallBack;
 
-+ (void)GET:(NSString *)URLString
++ (void)get:(NSString *)URLString
   parameter:(nullable NSDictionary *)parameter
     success:(void (^)(id resultObject))successCallback
     failure:(void (^)(id resultObject))failureCallback
       error:(nullable void (^)(NSError *error))errorCallBack;
 
-+ (void)PUT:(NSString *)URLString
++ (void)put:(NSString *)URLString
   parameter:(nullable NSDictionary *)parameter
     success:(void (^)(id resultObject))successCallback
     failure:(void (^)(id resultObject))failureCallback
       error:(nullable void (^)(NSError *error))errorCallBack;
 
-+ (void)RequestType:(TPRequestType)type
++ (void)request:(TPRequestType)type
                   url:(NSString *)URLString
             parameter:(nullable NSDictionary *)parameter
               headers:(nullable NSDictionary <NSString *, NSString *> *)headers

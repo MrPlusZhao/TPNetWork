@@ -9,10 +9,10 @@
 
 @implementation TPCommon
 
-+ (void)ShowNomal:(nullable NSString *)text afterDelay:(NSTimeInterval)delay{
-    [TPCommon ShowNomal:text view:nil afterDelay:delay];
++ (void)showNomal:(nullable NSString *)text afterDelay:(NSTimeInterval)delay{
+    [TPCommon showNomal:text view:nil afterDelay:delay];
 }
-+ (void)ShowNomal:(nullable NSString *)text view:(nullable UIView *)view afterDelay:(NSTimeInterval)delay
++ (void)showNomal:(nullable NSString *)text view:(nullable UIView *)view afterDelay:(NSTimeInterval)delay
 {
     if (view == nil) view = [[UIApplication sharedApplication].windows lastObject];
     // 快速显示一个提示信息
@@ -36,7 +36,7 @@
     }
     [hud hideAnimated:YES afterDelay:delay];
 }
-+ (TPCommon *)ShowLoading:(nullable NSString *)message toView:(nullable UIView *)view {
++ (TPCommon *)showLoading:(nullable NSString *)message toView:(nullable UIView *)view {
     if (view == nil) view = [[UIApplication sharedApplication].windows lastObject];
     // 快速显示一个提示信息
     TPCommon *hud = [TPCommon showHUDAddedTo:view animated:YES];
@@ -51,9 +51,9 @@
     return hud;
 }
 
-+ (TPCommon *)ShowLoading:(nullable NSString *)message
++ (TPCommon *)showLoading:(nullable NSString *)message
 {
-    return [self ShowLoading:message toView:nil];
+    return [self showLoading:message toView:nil];
 }
 
 + (void)hideHUDForView:(nullable UIView *)view
